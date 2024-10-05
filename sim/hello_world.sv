@@ -6,7 +6,6 @@ module hello_world(
 	   output logic [95:0] datao,
            output logic	       valido);
 
-
    cordic_0 DUT(
     .aclk(clk),
     .s_axis_phase_tvalid(validi),  // input wire s_axis_phase_tvalid
@@ -14,11 +13,17 @@ module hello_world(
     .m_axis_dout_tvalid(valido),    // output wire m_axis_dout_tvalid
     .m_axis_dout_tdata(datao) 
     );
-   
+	
+	
+   // assign datao = 0;
    
    initial begin
       $dumpfile("wave.vcd");
       $dumpvars;
+	  // valido = 1'b0;
+	  // #1500ns;
+	  // @(posedge clk) valido = 1'b1;
+	  // @(posedge clk) valido = 1'b0;
       
    end
    
